@@ -19,6 +19,6 @@ import {FormsModule} from '@angular/forms';
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent]// bootstrap译为启动，当访问http://localhost:4200时实际上我们查看到的是AppComponent便是此处的代码生效。
 })
 export class AppModule { }

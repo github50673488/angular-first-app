@@ -21,8 +21,11 @@ export class AppComponent implements OnInit {
     // this.httpClient.get('assets/teacher-all.json')
     //   .subscribe(); // 预请求，是由于get的实际作用是定义了一个请求信息，而并未发起真正的请求// 只有当其被订阅时，才会真正的发起请求
 
-    this.httpClient.get<[]>('assets/teacher-all.json')// 如果 teachers是any，可以简写成
-      //   this.httpClient.get('assets/teacher-all.json')从http获取任意类型的东西
+    // this.httpClient.get<[]>('assets/teacher-all.json')// 如果 teachers是any，可以简写成
+    //   this.httpClient.get('assets/teacher-all.json')从http获取任意类型的东西
+
+
+    this.httpClient.get<[]>('http://angular.api.codedemo.club:81/teacher')
       .subscribe((teachers) => {
         console.log(teachers);
         this.teachers = teachers;
