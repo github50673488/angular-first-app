@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {delay} from 'rxjs/operators';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-edit',
@@ -16,9 +17,10 @@ export class EditComponent implements OnInit {
     email: string,
     sex: boolean
   };
-
+  // Angular的依赖注入不仅仅能注入服务，还可以注入父组件 ,因为Anguar并不推荐我们这么样
   constructor(private activeRoute: ActivatedRoute
-    ,         private httpClient: HttpClient
+    ,         private httpClient: HttpClient,
+              private appComponent: AppComponent
   ) {
   }
 
@@ -41,7 +43,16 @@ export class EditComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('点击提交按钮');
+    console.log(this.teacher);
+    // 获取ID，拼接URL
+    const url = 'http://angular.api.codedemo.club:81/teacher/' + this.activeRoute.snapshot.params.id;
+    // 发起请求，更新教师，成功时打印请求结果并刷新教师列表查看效果，失败时打印失败结果
+    this.httpClient.put(url, this.teacher)
+      .subscribe(data => {
+          console.log('更新成功', data);
+          this.appComponent.ngOnInit();
+        },
+        error => console.log('更新错误', error));
   }
 
 }
