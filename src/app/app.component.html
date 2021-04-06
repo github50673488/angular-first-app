@@ -19,7 +19,8 @@
     <td>{{ teacher.username }}</td>
     <td>{{ teacher.email }}</td>
     <td *ngIf="teacher.sex; else famaleBlock">男</td>
-    <td>删除</td>
+<!--    Angular中每个html元素都添加了click事件-->
+    <td (click)="onDelete(teacher.id)">删除</td>
   </tr>
   </tbody>
 </table>
