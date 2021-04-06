@@ -1,0 +1,8 @@
+.btn {
+  margin-right: 0.5em;
+}
+
+/*图标字体与字体中增加些空隙时，我们CSS定义为.btn > svg，而非.btn > i*/
+.btn > svg {
+  margin-right: 0.3em;
+}

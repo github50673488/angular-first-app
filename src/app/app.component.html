@@ -1,7 +1,12 @@
 <!--在父组中的模板文件中使用<router-outlet></router-outlet>来指定子组件的位置-->
 <router-outlet></router-outlet>
-<a routerLink="add">新增</a>
-<table class="table table-striped">
+<div class="row">
+  <div class="col-12 text-right">
+    <a class="btn btn-primary mr-2" routerLink="add"><i class="fas fa-plus"></i>新增</a>
+  </div>
+</div>
+
+<table class="table table-striped mt-2">
   <thead>
   <tr class="table-primary">
     <th>序号</th>
@@ -21,7 +26,10 @@
     <td *ngIf="teacher.sex; else famaleBlock">男</td>
     <!--    Angular中每个html元素都添加了click事件-->
     <!--    <td (click)="onDelete(teacher.id)">删除</td>-->
-    <td><span (click)="onDelete(teacher.id)">删除</span> <a [routerLink]="'edit/' + teacher.id">编辑</a></td>
+    <td>
+      <a class="btn btn-outline-primary btn-sm" [routerLink]="'edit/' + teacher.id"><i class="fas fa-pen"></i>编辑</a>
+      <span class="btn btn-sm btn-outline-danger" (click)="onDelete(teacher.id)"><i class="fas fa-pen"></i>删除</span>
+    </td>
   </tr>
   </tbody>
 </table>
