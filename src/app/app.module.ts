@@ -6,7 +6,8 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {AddComponent} from './add/add.component';
 import {FormsModule} from '@angular/forms';
-import { EditComponent } from './edit/edit.component';
+import {EditComponent} from './edit/edit.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,9 @@ import { EditComponent } from './edit/edit.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule,
-    FormsModule
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]// bootstrap译为启动，当访问http://localhost:4200时实际上我们查看到的是AppComponent便是此处的代码生效。
